@@ -22,8 +22,9 @@ jobs:
         with:
           node-version: latest
 
-      - name: Install dependencies
-        run: npm install
+      - run: npm install
+      - run: npm ci
+      - run: npm run build
 
       - name: Run Semantic Release
         env:
