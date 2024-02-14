@@ -30,6 +30,9 @@ jobs:
       - name: Install @semantic-release/git
         run: npm install --save-dev @semantic-release/git
 
+      - name: Install @semantic-release/exec
+        run: npm install --save-dev @semantic-release/exec
+
       - name: Run Semantic Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }} # GitHub token with repo access
