@@ -4,7 +4,7 @@
 	RootModule             = '.\Capa.PowerShell.Module.PowerPack.MSI.psm1'
 
 	# Version number of this module.
-	ModuleVersion          = '2.0.0'
+	ModuleVersion          = '2.1.0'
 
 	# ID used to uniquely identify this module
 	GUID                   = 'fda2b305-e1a9-41b0-b52f-131fccf4c9dd'
