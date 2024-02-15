@@ -16,8 +16,14 @@ Import-Module PSMSI
 $ProductName = 'Capa.PowerShell.Module'
 $UpgradeCode = '84859CA1-0F7D-47BF-8D36-AE22F5E171AD'
 # Change as needed
-$VersionFile = Join-Path $PSScriptRoot 'Version.txt'
+$VersionFile = Join-Path $PSScriptRoot 'version.txt'
+
+try {
 $Version = (Get-Content -Path $VersionFile).Trim()
+} catch {
+    ls
+    exit
+}
 
 #################
 ### FUNCTIONS ###
