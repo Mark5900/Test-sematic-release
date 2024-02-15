@@ -673,6 +673,8 @@ Update-PSDVersions -Version $Version
 Import-FunctionsToPSMFiles
 GenerateFunctionsDocumentation
 try  {
+    Remove-Item -Path (Join-Path $PSScriptRoot 'Installers') -Recurse -Force
+
     New-ModuleInstaller -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
     New-ModuleInstallerSDKOnly -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
     New-ModuleInstallerPowerPackOnly -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode

@@ -10,6 +10,13 @@
     .EXAMPLE
         File_ExistFile -FilePath "C:\Temp\test.txt"
 
+    .EXAMPLE
+        if (File_ExistFile -FilePath "C:\Temp\test.txt") {
+            Write-Host "File exists"
+        } else {
+            Write-Host "File does not exist"
+        }
+
     .NOTES
         For more information, please visit https://capasystems.atlassian.net/wiki/spaces/CI65DOC/pages/19462455513/cs.File+ExistFile
 #>
