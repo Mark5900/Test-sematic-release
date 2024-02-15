@@ -667,6 +667,6 @@ try  {
     New-ModuleInstallerPowerPackOnly -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
 } catch {
     Write-Host "Error: $_"
-    Get-ChildItem -Path '/home/runner/.local/share/powershell/Modules/PSMSI/0.0.2/wix/bin/' -Recurse
+    Get-ChildItem -Path '/home/runner/.local/share/powershell/Modules/PSMSI' -Recurse
     exit
 }
