@@ -201,6 +201,8 @@ function New-ModuleInstaller {
 
     Remove-Item "$PSScriptRoot\Installers\$ProductName.$Version.x64.wxs" -Force
     Remove-Item "$PSScriptRoot\Installers\$ProductName.$Version.x64.wxsobj" -Force
+
+    Write-Host "Installer created at: $PSScriptRoot\Installers\$ProductName.$Version.x64.msi"
 }
 
 function New-ModuleInstallerSDKOnly {
@@ -292,6 +294,8 @@ function New-ModuleInstallerSDKOnly {
     }-OutputDirectory (Join-Path $PSScriptRoot 'Installers') -RequiresElevation -Version $Version -Manufacturer 'Mark5900' -Platform x64
     Remove-Item "$PSScriptRoot\Installers\$ProductName.$Version.x64.wxs" -Force
     Remove-Item "$PSScriptRoot\Installers\$ProductName.$Version.x64.wxsobj" -Force
+
+    Write-Host "Installer created at: $PSScriptRoot\Installers\$ProductName.$Version.x64.msi"
 }
 
 function New-ModuleInstallerPowerPackOnly {
@@ -362,6 +366,8 @@ function New-ModuleInstallerPowerPackOnly {
 
     Remove-Item "$PSScriptRoot\Installers\$ProductName.$Version.x64.wxs" -Force
     Remove-Item "$PSScriptRoot\Installers\$ProductName.$Version.x64.wxsobj" -Force
+
+    Write-Host "Installer created at: $PSScriptRoot\Installers\$ProductName.$Version.x64.msi"
 }
 
 function GenerateSyntaxText {
@@ -633,6 +639,11 @@ function Update-APSDFile {
 
             $Content = $Content -replace [regex]::Escape($line), $newLine
         }
+    }
+
+    # If last line is empty, remove it
+    if ($Content[-1] -eq '') {
+        $Content = $Content[0..($Content.Length - 2)]
     }
 
     Set-Content -Path $Path -Value $Content | Out-Null
