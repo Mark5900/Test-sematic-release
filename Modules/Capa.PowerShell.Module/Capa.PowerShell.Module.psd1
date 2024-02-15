@@ -1,6 +1,6 @@
 @{
 	# Version number of this module.
-	ModuleVersion          = '2.3.2'
+	ModuleVersion          = '2.3.3'
 
 	# ID used to uniquely identify this module
 	GUID                   = '517a4a6a-a4f8-4a8b-bf99-5fe75a1e7786'
@@ -37,8 +37,8 @@
 
 	# Modules that must be imported into the global environment prior to importing
 	# this module
-	RequiredModules        = @(@{ ModuleName = 'Capa.PowerShell.Module.SDK'; RequiredVersion = '2.3.2'; },
-		@{ ModuleName = 'Capa.PowerShell.Module.PowerPack'; RequiredVersion = '2.3.2'; })
+	RequiredModules        = @(@{ ModuleName = 'Capa.PowerShell.Module.SDK'; RequiredVersion = '2.3.3'; },
+		@{ ModuleName = 'Capa.PowerShell.Module.PowerPack'; RequiredVersion = '2.3.3'; })
 
 	# Assemblies that must be loaded prior to importing this module
 	RequiredAssemblies     = @()
@@ -103,7 +103,6 @@
 
 	} # End of PrivateData hashtable
 }
-
 
 
 
