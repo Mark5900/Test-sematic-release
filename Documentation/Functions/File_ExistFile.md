@@ -21,6 +21,15 @@ File_ExistFile
 File_ExistFile -FilePath "C:\Temp\test.txt"
 ```
     
+### Example 2
+```powershell
+if (File_ExistFile -FilePath "C:\Temp\test.txt") {
+    Write-Host "File exists"
+} else {
+    Write-Host "File does not exist"
+}
+```
+    
 
 ## Parameters
 
