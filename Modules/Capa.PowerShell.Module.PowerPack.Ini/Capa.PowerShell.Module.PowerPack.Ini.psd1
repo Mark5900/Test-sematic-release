@@ -4,7 +4,7 @@
 	RootModule             = '.\Capa.PowerShell.Module.PowerPack.Ini.psm1'
 
 	# Version number of this module.
-	ModuleVersion          = '2.2.0'
+	ModuleVersion          = '2.3.0'
 
 	# ID used to uniquely identify this module
 	GUID                   = '340bc94a-4f24-4fd5-b3f6-6f5802a6fbb2'
@@ -109,7 +109,6 @@
 
 	} # End of PrivateData hashtable
 }
-
 
 
 
