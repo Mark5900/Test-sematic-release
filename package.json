@@ -47,19 +47,8 @@
 				{
 					"assets": [
 						{
-							"path": "Installers/Capa.PowerShell.Module.${nextRelease.version}.x64.msi",
-							"name": "Capa.PowerShell.Module.${nextRelease.version}.x64.msi",
-							"label": "Installs the full Capa PowerShell Module"
-						},
-						{
-							"path": "Installers/Capa.PowerShell.Module.PowerPack.${nextRelease.version}.x64.msi",
-							"name": "Capa.PowerShell.Module.PowerPack.${nextRelease.version}.x64.msi",
-							"label": "Installs only the PowerPack part of the Capa PowerShell Module"
-						},
-						{
-							"path": "Installers/Capa.PowerShell.Module.SDK.${nextRelease.version}.x64.msi",
-							"name": "Capa.PowerShell.Module.SDK.${nextRelease.version}.x64.msi",
-							"label": "Installs only the SDK part of the Capa PowerShell Module"
+							"path": "Installers/*.msi",
+							"label": "Installer for version ${nextRelease.version}"
 						}
 					]
 				}
