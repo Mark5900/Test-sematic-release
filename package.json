@@ -9,7 +9,7 @@
 			[
 				"@semantic-release/exec",
 				{
-					"prepareCmd": "echo ${nextRelease.version} > version.txt"
+					"prepareCmd": "echo ${nextRelease.version} > version.txt && pwsh.exe -ExecutionPolicy Bypass -File CreateInstaller.ps1"
 				}
 			],
 			"@semantic-release/release-notes-generator",
@@ -17,7 +17,7 @@
 				"@semantic-release/git",
 				{
 					"assets": [
-						"package.json",
+						"Modules",
 						"version.txt"
 					],
 					"message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
