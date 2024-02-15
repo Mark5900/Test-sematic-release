@@ -9,7 +9,7 @@
 			[
 				"@semantic-release/exec",
 				{
-					"prepareCmd": "echo $npm_package_version > version.txt"
+					"prepareCmd": "echo ${nextRelease.version} > version.txt"
 				}
 			],
 			"@semantic-release/release-notes-generator",
