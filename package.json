@@ -47,8 +47,7 @@
 				{
 					"assets": [
 						{
-							"path": "Installers/*.msi",
-							"label": "Installer for version ${nextRelease.version}"
+							"path": "Installers/*.msi"
 						}
 					]
 				}
