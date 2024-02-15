@@ -661,6 +661,12 @@ function Update-PSDVersions {
 Update-PSDVersions -Version $Version
 Import-FunctionsToPSMFiles
 GenerateFunctionsDocumentation
-New-ModuleInstaller -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
-New-ModuleInstallerSDKOnly -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
-New-ModuleInstallerPowerPackOnly -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
+try  {
+    New-ModuleInstaller -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
+    New-ModuleInstallerSDKOnly -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
+    New-ModuleInstallerPowerPackOnly -Version $Version -ProductName $ProductName -UpgradeCode $UpgradeCode
+} catch {
+    Write-Host "Error: $_"
+    Get-ChildItem -Path '/home/runner/.local/share/powershell/Modules/PSMSI/0.0.2/wix/bin/' -Recurse
+    exit
+}
