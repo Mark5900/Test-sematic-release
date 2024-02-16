@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: my-app-install token
         id: my-app
-        uses: getsentry/action-github-app-token@v3
+        uses: tibdex/github-app-token@v2.1.0
         with:
           app_id: ${{ secrets.BOT_APP_ID }}
           private_key: ${{ secrets.BOT_PRIVATE_KEY }}
