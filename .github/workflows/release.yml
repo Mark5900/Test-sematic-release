@@ -19,12 +19,12 @@ jobs:
         with:
           app-id: ${{ vars.BOT_APP_ID }}
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
-          repositories: "Test-sematic-release"
+          repositories: "test-sematic-release"
 
 
       - uses: ./actions/staging-tests
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.my-app.outputs.token }}
 
       - name: 'Print token'
         run: "echo 'The created token is masked: ${{ steps.my-app.outputs.token }}'"
