@@ -6,23 +6,8 @@ on:
     branches:
       - main
       - auto-release
-      - test
 
 jobs:
-  generate_token_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Generate token'
-        id: generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ secrets.BOT_APP_ID }}
-          private_key: ${{ secrets.BOT_PRIVATE_KEY }}
-
-      - name: 'Print token'
-        run: "echo 'The created token is masked: ${{ steps.generate_token.outputs.token }}'"
-
-
   release:
     runs-on: windows-latest
     permissions:
@@ -30,6 +15,13 @@ jobs:
       pull-requests: write
       issues: write
     steps:
+      - name: my-app-install token
+        id: my-app
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -54,5 +46,5 @@ jobs:
 
       - name: Run Semantic Release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.my-app.outputs.token }}
         run: npx semantic-release
