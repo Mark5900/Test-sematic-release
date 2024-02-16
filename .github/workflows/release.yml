@@ -8,25 +8,41 @@ on:
       - auto-release
 
 jobs:
+  generate_token_job:
+    runs-on: ubuntu-latest
+    outputs:
+      token: ${{ steps.generate_token.outputs.token }}
+    steps:
+      - name: Generate token
+        id: generate_token
+        run: |
+          echo "${{ secrets.BOT_PRIVATE_KEY }}" > /tmp/bot_private_key.pem
+          chmod 600 /tmp/bot_private_key.pem
+          export TOKEN=$(curl -sS -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${{ secrets.BOT_APP_ID }}" \
+            -d @/tmp/bot_private_key.pem \
+            https://api.github.com/app/installations/${{ secrets.BOT_APP_ID }}/access_tokens \
+            | jq -r '.token')
+          echo "::set-output name=token::${TOKEN}"
+        env:
+          BOT_APP_ID: ${{ secrets.BOT_APP_ID }}
+          BOT_PRIVATE_KEY: ${{ secrets.BOT_PRIVATE_KEY }}
+        shell: bash
+
   release:
+    needs: generate_token_job
+    runs-on: windows-latest
     permissions:
       contents: write
       pull-requests: write
       issues: write
-    runs-on: windows-latest
     steps:
-      - name: 'Generate token'
-        id: generate_token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.BOT_APP_ID }}
-          private_key: ${{ secrets.BOT_PRIVATE_KEY }}
-
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ steps.generate_token.outputs.token }}
+          token: ${{ needs.generate_token_job.outputs.token }}
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -47,6 +63,5 @@ jobs:
 
       - name: Run Semantic Release
         env:
-          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+          GH_TOKEN: ${{ needs.generate_token_job.outputs.token }}
         run: npx semantic-release
-
