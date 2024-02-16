@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: my-app-install token
         id: my-app
-        uses: peter-murray/workflow-application-token-action@v3
+        uses: actions/create-github-app-token@v1
         with:
-          application_id: ${{ secrets.BOT_APP_ID }}
-          application_private_key: ${{ secrets.BOT_PRIVATE_KEY }}
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
 
       - name: 'Print token'
         run: "echo 'The created token is masked: ${{ steps.my-app.outputs.token }}'"
