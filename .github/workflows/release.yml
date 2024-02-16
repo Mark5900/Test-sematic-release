@@ -19,7 +19,8 @@ jobs:
         with:
           app-id: ${{ vars.BOT_APP_ID }}
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
-          github-api-url: "https://github.acme-inc.com/api/v3"
+          repositories: "Test-sematic-release"
+
 
       - uses: ./actions/staging-tests
         with:
