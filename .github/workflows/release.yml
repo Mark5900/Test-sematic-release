@@ -24,6 +24,7 @@ jobs:
 
 
   release:
+    needs: generate_token_job
     runs-on: windows-latest
     permissions:
       contents: write
@@ -53,4 +54,6 @@ jobs:
         run: npm install --save-dev @semantic-release/exec
 
       - name: Run Semantic Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
