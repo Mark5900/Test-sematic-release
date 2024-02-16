@@ -32,6 +32,13 @@ jobs:
       pull-requests: write
       issues: write
     steps:
+      - name: my-app-install token
+        id: my-app
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -56,5 +63,5 @@ jobs:
 
       - name: Run Semantic Release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.my-app.outputs.token }}
         run: npx semantic-release
