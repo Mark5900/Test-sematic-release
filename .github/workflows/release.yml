@@ -19,7 +19,6 @@ jobs:
         with:
           app-id: ${{ secrets.BOT_APP_ID }}
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
-          github-api-url: "https://github.acme-inc.com/api/v3"
 
       - uses: ./actions/staging-tests
         with:
