@@ -20,6 +20,10 @@ jobs:
           app-id: ${{ secrets.BOT_APP_ID }}
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
 
+      - uses: ./actions/staging-tests
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
       - name: 'Print token'
         run: "echo 'The created token is masked: ${{ steps.my-app.outputs.token }}'"
 
