@@ -41,7 +41,7 @@
 
     # Modules that must be imported into the global environment prior to importing
     # this module
-    RequiredModules        = @(@{ ModuleName = 'Capa.PowerShell.Module.PowerPack.File'; RequiredVersion = '2.3.4'; },
+    RequiredModules        = @(@{ ModuleName = 'Capa.PowerShell.Module.PowerPack.File'; RequiredVersion = '2.4.4'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Ini'; RequiredVersion = '2.3.4'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Job'; RequiredVersion = '2.3.4'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Log'; RequiredVersion = '2.3.4'; },
