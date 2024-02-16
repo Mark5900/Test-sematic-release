@@ -45,7 +45,7 @@
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Ini'; RequiredVersion = '2.3.7'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Job'; RequiredVersion = '2.3.4'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Log'; RequiredVersion = '2.3.4'; },
-        @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.MSI'; RequiredVersion = '2.3.4'; },
+        @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.MSI'; RequiredVersion = '2.34'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Reg'; RequiredVersion = '2.3.4'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Service'; RequiredVersion = '2.3.4'; },
         @{ ModuleName = 'Capa.PowerShell.Module.PowerPack.Shell'; RequiredVersion = '2.3.4'; },
