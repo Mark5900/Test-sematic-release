@@ -6,26 +6,9 @@ on:
     branches:
       - main
       - auto-release
-      - test
-      - Test
 
 jobs:
-  generate_token_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: my-app-install token
-        id: my-app
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ vars.BOT_APP_ID }}
-          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
-
-      - name: 'Print token'
-        run: "echo 'The created token is masked: ${{ steps.my-app.outputs.token }}'"
-
-
   release:
-    needs: generate_token_job
     runs-on: windows-latest
     permissions:
       contents: write
