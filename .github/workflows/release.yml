@@ -17,7 +17,7 @@ jobs:
         id: my-app
         uses: peter-murray/workflow-application-token-action@v3
         with:
-          application_id: ${{ vars.BOT_APP_ID }}
+          application_id: ${{ secrets.BOT_APP_ID }}
           application_private_key: ${{ secrets.BOT_PRIVATE_KEY }}
 
       - name: 'Print token'
