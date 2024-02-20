@@ -4,7 +4,7 @@
 	RootModule             = './Capa.PowerShell.Module.SDK.Inventory.psm1'
 
 	# Version number of this module.
-	ModuleVersion          = '2.3.4'
+	ModuleVersion          = '2.3.5'
 
 	# ID used to uniquely identify this module
 	GUID                   = 'd248ab64-e61c-4022-8768-d68edb78a540'
@@ -117,7 +117,6 @@
 
 	} # End of PrivateData hashtable
 }
-
 
 
 
